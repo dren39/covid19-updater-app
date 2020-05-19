@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
-// import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar";
 
 class Home extends Component {
+
     // state = {
     //     location: null,
     //     searchTerm: ""
@@ -35,8 +36,8 @@ class Home extends Component {
     render() {
         return (
             <div>
+                <SearchBar searchTerm={this.props.searchTerm} searchHandler={this.props.searchHandler}/>
                 <p>Stay Home Stay Safe</p>
-                {/* <SearchBar searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/> */}
                 {/* <button onClick={this.getNews}>Make fetch</button> */}
                 {/* { this.state.location ? 
                   <button onClick={this.getStats}>

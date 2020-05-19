@@ -2,14 +2,16 @@ import React, {Component} from 'react';
 import './App.css';
 import {Route, Switch, BrowserRouter} from 'react-router-dom';
 import Home from "./Components/Home";
-import SearchBar from "./Components/SearchBar";
+// import SearchBar from "./Components/SearchBar";
 import NewsContainer from "./Components/NewsContainer"
 
 class App extends Component {
+
     state = {
         location: null,
         searchTerm: ""
     }
+
     // getNews = () => {
     //     fetch('https://api.smartable.ai/coronavirus/news/US-NY', {
     //         method: 'GET',
@@ -35,17 +37,25 @@ class App extends Component {
     }
 
     renderNewsContainer = () => {
-        return <NewsContainer searchTerm={this.state.searchTerm}/>
+        return <NewsContainer searchTerm={this.state.searchTerm} clearSearchBar={this.clearSearchBar}/>
+    }
+
+    renderHome = () => {
+        return <Home searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/>
+    }
+
+    clearSearchBar = () => {
+        this.setState({searchTerm: ""});
     }
 
     render() {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <SearchBar searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/>
+                    {/* <SearchBar searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/> */}
                     <Switch>
                         <Route path='/:state' component={this.renderNewsContainer}/>
-                        <Route path='/' component={Home}/>
+                        <Route path='/' component={this.renderHome}/>
                     </Switch>
 
                     {/* <button onClick={this.getNews}>Make fetch</button> */}

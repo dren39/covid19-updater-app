@@ -10,6 +10,7 @@ class SearchBar extends Component {
                     value={this.props.searchTerm} 
                     onChange={this.props.searchHandler}
                     placeholder="Enter a state e.g 'CA'"
+                    maxLength="2"
                 />
                 <Link to={`/${this.props.searchTerm.toUpperCase()}`}>
                     <button type="submit">Search</button>
