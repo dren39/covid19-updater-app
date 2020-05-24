@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import NewsCard from '../Components/NewsCard';
 
 class NewsContainer extends Component {
     
     state = {
-        locationName: null,
-        newsArray: null
+        newsArray: null,
+        statsObject: null
     }
 
     componentDidMount() {
@@ -18,8 +19,8 @@ class NewsContainer extends Component {
         .then(response => response.json())
         .then(data => {
             // console.log(data.news)
-            this.setState({locationName: data.location.provinceOrState, newsArray: data.news})
-            console.log(this.state.locationName, this.state.newsArray)
+            this.setState({newsArray: data.news})
+            console.log(this.state.newsArray)
         })
 
         fetch(`https://api.smartable.ai/coronavirus/stats/US-${this.props.searchTerm}`, {
@@ -30,9 +31,16 @@ class NewsContainer extends Component {
         })//end of fetch
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            this.setState({statsObject: data})
+            console.log(this.state.statsObject)
         })
         this.props.clearSearchBar()
+    }
+
+    renderNewsCards = () => {
+        return (
+            this.state.newsArray.map(article => <NewsCard key={article.heat} article={article}/>)
+        )
     }
 
     render() {
@@ -42,6 +50,7 @@ class NewsContainer extends Component {
                 <Link to={"/"}>
                     <button>Back</button>
                 </Link>
+                {this.state.newsArray ? this.renderNewsCards() : null}
             </div>
         )
     }
