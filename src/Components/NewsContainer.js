@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import NewsCard from '../Components/NewsCard';
+import { Card } from 'semantic-ui-react';
 
 class NewsContainer extends Component {
     
@@ -39,7 +40,11 @@ class NewsContainer extends Component {
 
     renderNewsCards = () => {
         return (
-            this.state.newsArray.map(article => <NewsCard key={article.heat} article={article}/>)
+            <div>
+                <Card.Group itemsPerRow={3} centered>
+                    {this.state.newsArray.map(article => <NewsCard article={article}/>)}
+                </Card.Group>
+            </div>
         )
     }
 
