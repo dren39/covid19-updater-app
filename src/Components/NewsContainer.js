@@ -42,7 +42,7 @@ class NewsContainer extends Component {
         return (
             <div>
                 <Card.Group itemsPerRow={3} centered>
-                    {this.state.newsArray.map(article => <NewsCard article={article}/>)}
+                    {this.state.newsArray.map((article, index) => <NewsCard article={article} key={index}/>)}
                 </Card.Group>
             </div>
         )
