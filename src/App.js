@@ -3,13 +3,16 @@ import './App.css';
 import {Route, Switch, BrowserRouter} from 'react-router-dom';
 import Home from "./Components/Home";
 // import SearchBar from "./Components/SearchBar";
-import NewsContainer from "./Components/NewsContainer"
+import NewsContainer from "./Components/NewsContainer";
+import OptionDropdown from "./Components/OptionDropdown";
 
 class App extends Component {
 
     state = {
         location: null,
-        searchTerm: ""
+        searchTerm: "",
+        newsTab: false,
+        showDropdown: false
     }
 
     // getNews = () => {
@@ -37,8 +40,19 @@ class App extends Component {
     }
 
     renderNewsContainer = () => {
-        return <NewsContainer searchTerm={this.state.searchTerm} clearSearchBar={this.clearSearchBar}/>
+        return (
+            <div>
+                <OptionDropdown/>
+                <NewsContainer searchTerm={this.state.searchTerm} clearSearchBar={this.clearSearchBar}/>
+            </div>
+
+        )
     }
+
+    // showDropdown = () => {
+    //     this.setState({showDropdown: !this.state.showDropdown}, this.renderNewsContainer())
+    // }
+
 
     renderHome = () => {
         return <Home searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/>
@@ -53,6 +67,7 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     {/* <SearchBar searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/> */}
+                    {this.state.showDropdown ? <OptionDropdown/> : null}
                     <Switch>
                         <Route path='/:state' component={this.renderNewsContainer}/>
                         <Route path='/' component={this.renderHome}/>
