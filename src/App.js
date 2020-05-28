@@ -3,16 +3,17 @@ import './App.css';
 import {Route, Switch, BrowserRouter} from 'react-router-dom';
 import Home from "./Components/Home";
 // import SearchBar from "./Components/SearchBar";
-import NewsContainer from "./Components/NewsContainer";
+import SearchResultContainer from "./Components/SearchResultContainer";
 import OptionDropdown from "./Components/OptionDropdown";
+import StatsTable from "./Components/StatsTable";
 
 class App extends Component {
 
     state = {
         location: null,
         searchTerm: "",
-        newsTab: false,
-        showDropdown: false
+        // newsTab: false,
+        // showDropdown: false
     }
 
     // getNews = () => {
@@ -39,14 +40,12 @@ class App extends Component {
         this.setState({searchTerm: event.target.value.toUpperCase()}, console.log(this.state.searchTerm));
     }
 
-    renderNewsContainer = () => {
-        return (
-            <div>
-                <OptionDropdown/>
-                <NewsContainer searchTerm={this.state.searchTerm} clearSearchBar={this.clearSearchBar}/>
-            </div>
+    clearSearchBar = () => {
+        this.setState({searchTerm: ""});
+    }
 
-        )
+    renderSearchResults = () => {
+        return <SearchResultContainer searchTerm={this.state.searchTerm} clearSearchBar={this.clearSearchBar}/>
     }
 
     // showDropdown = () => {
@@ -58,18 +57,15 @@ class App extends Component {
         return <Home searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/>
     }
 
-    clearSearchBar = () => {
-        this.setState({searchTerm: ""});
-    }
 
     render() {
         return (
             <BrowserRouter>
                 <div className="App">
                     {/* <SearchBar searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/> */}
-                    {this.state.showDropdown ? <OptionDropdown/> : null}
+                    {/* {this.state.showDropdown ? <OptionDropdown/> : null} */}
                     <Switch>
-                        <Route path='/:state' component={this.renderNewsContainer}/>
+                        <Route path='/:state' component={this.renderSearchResults}/>
                         <Route path='/' component={this.renderHome}/>
                     </Switch>
 
