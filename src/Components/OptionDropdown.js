@@ -10,7 +10,7 @@ function OptionDropdown(props) {
 
     return(
         <Dropdown
-            placeholder="Whaat would you like to see?"
+            placeholder="What would you like to see?"
             options={options}
             selection
             onChange={event=> props.dropdownChangeHandler(event.target.textContent)}

@@ -14,7 +14,7 @@ class SearchResultContainer extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.smartable.ai/coronavirus/stats/US-${this.props.searchTerm}`, {
+        fetch(`https://api.smartable.ai/coronavirus/stats/US-${this.props.searchTerm.toUpperCase()}`, {
             method: 'GET',
             headers: {
                 'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
@@ -26,7 +26,7 @@ class SearchResultContainer extends Component {
             console.log(this.state.statsObject)
         })
 
-        fetch(`https://api.smartable.ai/coronavirus/news/US-${this.props.searchTerm}`, {
+        fetch(`https://api.smartable.ai/coronavirus/news/US-${this.props.searchTerm.toUpperCase()}`, {
             method: 'GET',
             headers: {
                 'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'

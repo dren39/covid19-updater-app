@@ -4,8 +4,10 @@ import {Route, Switch, BrowserRouter} from 'react-router-dom';
 import Home from "./Components/Home";
 // import SearchBar from "./Components/SearchBar";
 import SearchResultContainer from "./Components/SearchResultContainer";
-import OptionDropdown from "./Components/OptionDropdown";
-import StatsTable from "./Components/StatsTable";
+// import OptionDropdown from "./Components/OptionDropdown";
+// import StatsTable from "./Components/StatsTable";
+import Navbar from "./Components/Navbar";
+import About from "./Components/About";
 
 class App extends Component {
 
@@ -37,7 +39,7 @@ class App extends Component {
     // }
 
     searchHandler = (event) => {
-        this.setState({searchTerm: event.target.value.toUpperCase()}, console.log(this.state.searchTerm));
+        this.setState({searchTerm: event.target.value}, console.log(this.state.searchTerm));
     }
 
     clearSearchBar = () => {
@@ -62,9 +64,11 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
+                    <Navbar/>
                     {/* <SearchBar searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/> */}
                     {/* {this.state.showDropdown ? <OptionDropdown/> : null} */}
                     <Switch>
+                        <Route path='/about' component={About}/>
                         <Route path='/:state' component={this.renderSearchResults}/>
                         <Route path='/' component={this.renderHome}/>
                     </Switch>
