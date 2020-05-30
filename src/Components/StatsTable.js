@@ -19,11 +19,11 @@ function StatsTable(props) {
 
                 <Table.Body>
                     <Table.Row>
-                        <Table.Cell>{`${props.statsObj.stats.newlyConfirmedCases}`}</Table.Cell>
-                        <Table.Cell>{`${props.statsObj.stats.totalConfirmedCases}`}</Table.Cell>
-                        <Table.Cell>{`${props.statsObj.stats.newDeaths}`}</Table.Cell>
-                        <Table.Cell>{`${props.statsObj.stats.newlyRecoveredCases}`}</Table.Cell>
-                        <Table.Cell>{`${props.statsObj.stats.totalRecoveredCases}`}</Table.Cell>
+                        <Table.Cell>{`${props.statsObj.stats.newlyConfirmedCases.toLocaleString()}`}</Table.Cell>
+                        <Table.Cell>{`${props.statsObj.stats.totalConfirmedCases.toLocaleString()}`}</Table.Cell>
+                        <Table.Cell>{`${props.statsObj.stats.newDeaths.toLocaleString()}`}</Table.Cell>
+                        <Table.Cell>{`${props.statsObj.stats.newlyRecoveredCases.toLocaleString()}`}</Table.Cell>
+                        <Table.Cell>{`${props.statsObj.stats.totalRecoveredCases.toLocaleString()}`}</Table.Cell>
                     </Table.Row>
                 </Table.Body>
             </Table>
