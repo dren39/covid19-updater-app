@@ -5,24 +5,24 @@ import '../Styles/Navbar.css';
 function Navbar() {
     return (
         <div className="top-bar-wrapper">
-            <div class="title-wrapper">
-                <h3>Covid19 Daily News</h3>
+            <div className="title-wrapper">
+                <h3>Covid19 Daily Update</h3>
             </div>
             
-            <div class="menu-bar-wrapper">
-                <ul class="menu-bar">
-                    <li class="home-nav">
+            {/* <div className="menu-bar-wrapper"> */}
+                <ul className="menu-bar">
+                    <li className="home-nav">
                         <Link to={"/"}>
                             <p>Home</p>
                         </Link>
                     </li>
-                    <li class="about-nav">
+                    <li className="about-nav">
                         <Link to={"/about"}>
                             <p>About</p>
                         </Link>
                     </li>
                 </ul>
-            </div>
+            {/* </div> */}
             {/* <div className="menu-bar-wrapper">
                 <div className="title-wrapper">
                     <h3>Covid19 Daily News</h3>

@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;;
     align-items: center;
-    justify-items: center;
+    justify-items: left;
     height: 55px;
     position: relative;
     z-index: 2;
@@ -19,13 +19,22 @@
     margin-bottom: 14px;
 }
 
+.title-wrapper {
+    margin-left: 5%;
+}
+
+.title-wrapper h3 {
+    font-size: 20px;
+}
+
 .menu-bar {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    width: 200px;;
-    height:50px;
-    margin: auto;
+    width: 150px; 
+    height: 50px;
+    /* margin: auto; */
     text-align: center;
-    margin-left: 70px;
+    margin-left: 60%;
+    font-size: 18px;
 }
