@@ -1,21 +1,29 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router-dom';
-import { Search, Button } from 'semantic-ui-react';
+import { Search, Button, Icon, Input } from 'semantic-ui-react';
+import '../Styles/SearchBar.css';
 
 function SearchBar(props) {
     return (
-        <div>
-
-            <Search
-                onSearchChange={props.searchHandler}
-                value={props.searchTerm}
-                placeholder="Enter a state e.g 'CA'"
-                maxLength="2"
-                showNoResults={false}
-            />
-            <Link to={`/${props.searchTerm.toUpperCase()}`}>
-                <Button>Search</Button>
-            </Link>
+        <div className="searchbar-top-wrapper">
+            <div className="searchbar-wrapper">
+                <Link to={`/${props.searchTerm.toUpperCase()}`}>
+                    <Input
+                        onChange={props.searchHandler}
+                        value={props.searchTerm}
+                        placeholder="Enter a state e.g 'CA'"
+                        maxLength="2"
+                        action={{ icon: 'search' }}
+                    />
+                </Link>
+            </div>
+            {/* <div className="search-btn-wrapper">
+                <Link to={`/${props.searchTerm.toUpperCase()}`}>
+                    <Button icon>
+                        <Icon name="search"/>
+                    </Button>
+                </Link>
+            </div> */}
         </div>
         // <div id="searchbar">
         //     <input 
