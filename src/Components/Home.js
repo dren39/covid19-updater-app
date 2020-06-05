@@ -37,7 +37,7 @@ class Home extends Component {
         return (
             <div>
                 <SearchBar searchTerm={this.props.searchTerm} searchHandler={this.props.searchHandler}/>
-                <p>Stay Home Stay Safe</p>
+                {/* <p>Stay Home Stay Safe</p> */}
                 {/* <button onClick={this.getNews}>Make fetch</button> */}
                 {/* { this.state.location ? 
                   <button onClick={this.getStats}>

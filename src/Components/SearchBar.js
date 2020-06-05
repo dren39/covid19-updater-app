@@ -13,17 +13,13 @@ function SearchBar(props) {
                         value={props.searchTerm}
                         placeholder="Enter a state e.g 'CA'"
                         maxLength="2"
-                        action={{ icon: 'search' }}
+                        action={{ icon: 'search', color:'blue' }}
                     />
                 </Link>
             </div>
-            {/* <div className="search-btn-wrapper">
-                <Link to={`/${props.searchTerm.toUpperCase()}`}>
-                    <Button icon>
-                        <Icon name="search"/>
-                    </Button>
-                </Link>
-            </div> */}
+            <div className="message-wrapper">
+                <h4>Stay Home Stay Safe</h4>
+            </div>
         </div>
         // <div id="searchbar">
         //     <input 
@@ -37,16 +33,23 @@ function SearchBar(props) {
         //         <button type="submit">Search</button>
         //     </Link>
         // </div>
-    )
+        )
 }
-
-export default withRouter(SearchBar);
-
-// import React, { Component } from 'react';
-// import {Link, withRouter} from 'react-router-dom';
-
-// class SearchBar extends Component {
-//     render() {
+    {/* <div className="search-btn-wrapper">
+        <Link to={`/${props.searchTerm.toUpperCase()}`}>
+            <Button icon>
+                <Icon name="search"/>
+            </Button>
+        </Link>
+    </div> */}
+    
+    export default withRouter(SearchBar);
+    
+    // import React, { Component } from 'react';
+    // import {Link, withRouter} from 'react-router-dom';
+    
+    // class SearchBar extends Component {
+        //     render() {
 //         return (
 //             <div id="searchbar">
 //                 <input 

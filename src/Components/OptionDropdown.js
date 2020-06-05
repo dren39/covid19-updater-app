@@ -1,5 +1,6 @@
 import React from 'react'
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react';
+import '../Styles/OptionDropdown.css';
 
 function OptionDropdown(props) {
     
@@ -9,12 +10,15 @@ function OptionDropdown(props) {
     ]
 
     return(
-        <Dropdown
-            placeholder="What would you like to see?"
-            options={options}
-            selection
-            onChange={event=> props.dropdownChangeHandler(event.target.textContent)}
-        />
+        <div className="dropdown-wrapper">
+            <Dropdown
+                placeholder="What would you like to see?"
+                options={options}
+                selection
+                onChange={event=> props.dropdownChangeHandler(event.target.textContent)}
+            />
+
+        </div>
     )
 }
 

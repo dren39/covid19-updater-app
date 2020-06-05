@@ -1,0 +1,5 @@
+.dropdown-wrapper {
+    width: 97%;
+    display: flex;
+    justify-content: flex-end;
+}

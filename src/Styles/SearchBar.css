@@ -1,4 +1,13 @@
 .searchbar-top-wrapper {
+    height: 50vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    /* width: 50%; */
+    /* margin: auto; */
+}
+
+.searchbar-wrapper {
+    margin-bottom: 1vh;
 }

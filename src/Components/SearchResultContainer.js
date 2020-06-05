@@ -72,12 +72,9 @@ class SearchResultContainer extends Component {
     render() {
         return (
             <div>
-                <p>This is your results</p>
-                <Link to={"/"}>
-                    <button>Back</button>
-                </Link>
                 {this.state.statsObject && !this.state.newsTab ? this.renderStatsTable() : null}
                 {this.state.newsArray && this.state.newsTab ? this.renderNewsCards(): null}
+                {this.state.statsObject ? <Link to={"/"}><button>Back</button></Link> : <h3>Loading</h3>}
             </div>
         )
     }
