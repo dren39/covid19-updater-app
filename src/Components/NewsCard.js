@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, Card, Icon } from 'semantic-ui-react';
+import { Button, Card, Icon } from 'semantic-ui-react'
+import '../Styles/NewsCard.css'
 
 function NewsCard(props) {
     return (
-        // <div>
+        <div className="card-wrapper">
             <Card color={"blue"}>
                 <Card.Content textAlign={"center"}>
                     <Card.Header>{props.article.title}</Card.Header>
@@ -17,7 +18,7 @@ function NewsCard(props) {
                         </a>
                 </Card.Content>
             </Card>
-        // </div>
+        </div>
     )
 }
 

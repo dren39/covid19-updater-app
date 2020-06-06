@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import NewsCard from './NewsCard';
-import { Card } from 'semantic-ui-react';
-import OptionDropdown from './OptionDropdown';
-import StatsTable from './StatsTable';
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
+import NewsCard from './NewsCard'
+import { Card, Button } from 'semantic-ui-react'
+import OptionDropdown from './OptionDropdown'
+import StatsTable from './StatsTable'
+import NewsContainer from './NewsContainer'
+// import '../Styles/SearchResult.css'
 
 class SearchResultContainer extends Component {
     
@@ -41,13 +43,11 @@ class SearchResultContainer extends Component {
         this.props.clearSearchBar()
     }
 
-    renderNewsCards = () => {
+    renderNewsContainer = () => {
         return (
             <div>
                 <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler}/>
-                <Card.Group itemsPerRow={3} centered>
-                    {this.state.newsArray.map((article, index) => <NewsCard article={article} key={index}/>)}
-                </Card.Group>
+                <NewsContainer newsArray={this.state.newsArray}/>
             </div>
         )
     }
@@ -73,8 +73,15 @@ class SearchResultContainer extends Component {
         return (
             <div>
                 {this.state.statsObject && !this.state.newsTab ? this.renderStatsTable() : null}
-                {this.state.newsArray && this.state.newsTab ? this.renderNewsCards(): null}
-                {this.state.statsObject ? <Link to={"/"}><button>Back</button></Link> : <h3>Loading</h3>}
+                {this.state.newsArray && this.state.newsTab ? this.renderNewsContainer(): null}
+                {this.state.statsObject ? null
+                    // <div className="back-btn-wrapper">
+                    //     <Link to={"/"}>
+                    //         <Button color='blue'>Back</Button>
+                    //     </Link> 
+                    // </div>
+                    : <h3>Loading</h3>
+                }
             </div>
         )
     }

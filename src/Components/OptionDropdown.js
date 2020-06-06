@@ -1,5 +1,6 @@
 import React from 'react'
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import '../Styles/OptionDropdown.css';
 
 function OptionDropdown(props) {
@@ -11,13 +12,19 @@ function OptionDropdown(props) {
 
     return(
         <div className="dropdown-wrapper">
-            <Dropdown
-                placeholder="What would you like to see?"
-                options={options}
-                selection
-                onChange={event=> props.dropdownChangeHandler(event.target.textContent)}
-            />
-
+            <div className="back-btn-wrapper">
+                <Link to={"/"}>
+                    <Button color='blue'>Back</Button>
+                </Link> 
+            </div>
+            <div>
+                <Dropdown
+                    placeholder="What would you like to see?"
+                    options={options}
+                    selection
+                    onChange={event=> props.dropdownChangeHandler(event.target.textContent)}
+                />
+            </div>
         </div>
     )
 }
