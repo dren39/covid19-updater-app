@@ -5,17 +5,20 @@ import '../Styles/NewsCard.css'
 function NewsCard(props) {
     return (
         <div className="card-wrapper">
-            <Card color={"blue"}>
+            <Card>
                 <Card.Content textAlign={"center"}>
-                    <Card.Header>{props.article.title}</Card.Header>
+                    <h4>{props.article.title}</h4>
                         <Card.Description>
-                            This is description
+                            <p>{`${props.article.provider.name}`}</p>
+                            <p>{`${props.article.publishedDateTime.slice(0,10)}`}</p>
                         </Card.Description>
-                        <a href={`${props.article.webUrl}`}>
-                            <Button compact color="olive" active>
-                                See Details <Icon name="arrow circle right"/>
-                            </Button>
-                        </a>
+                        <div className="card-btn-wrapper">
+                            <a href={`${props.article.webUrl}`} target="_blank" rel="noopener noreferrer">
+                                <Button compact color="blue" active>
+                                    See Details <Icon name="arrow circle right"/>
+                                </Button>
+                            </a>
+                        </div>
                 </Card.Content>
             </Card>
         </div>

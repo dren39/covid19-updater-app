@@ -11,7 +11,7 @@ class SearchResultContainer extends Component {
     
     state = {
         statsObject: null,
-        newsArray: null,
+        newsObject: null,
         newsTab: false,
     }
 
@@ -37,8 +37,8 @@ class SearchResultContainer extends Component {
         .then(response => response.json())
         .then(data => {
             // console.log(data.news)
-            this.setState({newsArray: data.news})
-            console.log(this.state.newsArray)
+            this.setState({newsObject: data})
+            console.log(this.state.newsObject)
         })
         this.props.clearSearchBar()
     }
@@ -47,7 +47,7 @@ class SearchResultContainer extends Component {
         return (
             <div>
                 <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler}/>
-                <NewsContainer newsArray={this.state.newsArray}/>
+                <NewsContainer newsObject={this.state.newsObject}/>
             </div>
         )
     }
@@ -73,7 +73,7 @@ class SearchResultContainer extends Component {
         return (
             <div>
                 {this.state.statsObject && !this.state.newsTab ? this.renderStatsTable() : null}
-                {this.state.newsArray && this.state.newsTab ? this.renderNewsContainer(): null}
+                {this.state.newsObject && this.state.newsTab ? this.renderNewsContainer(): null}
                 {this.state.statsObject ? null
                     // <div className="back-btn-wrapper">
                     //     <Link to={"/"}>
