@@ -1,5 +1,12 @@
-.back-btn-wrapper {
+/* .back-btn-wrapper {
     width: 50%;
     margin: auto;
     margin-top: 12px;
+} */
+
+.load-msg {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    top: 50%;
 }

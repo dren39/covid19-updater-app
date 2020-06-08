@@ -5,7 +5,7 @@ import { Card, Button } from 'semantic-ui-react'
 import OptionDropdown from './OptionDropdown'
 import StatsTable from './StatsTable'
 import NewsContainer from './NewsContainer'
-// import '../Styles/SearchResult.css'
+import '../Styles/SearchResult.css'
 
 class SearchResultContainer extends Component {
     
@@ -80,7 +80,7 @@ class SearchResultContainer extends Component {
                     //         <Button color='blue'>Back</Button>
                     //     </Link> 
                     // </div>
-                    : <h3>Loading</h3>
+                    : <h2 className="load-msg">Loading Data</h2>
                 }
             </div>
         )
