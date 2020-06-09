@@ -13,6 +13,7 @@ class SearchResultContainer extends Component {
         statsObject: null,
         newsObject: null,
         newsTab: false,
+        hasError: false
     }
 
     componentDidMount() {
@@ -22,10 +23,19 @@ class SearchResultContainer extends Component {
                 'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
             }
         })//end of fetch
-        .then(response => response.json())
+        .then(response => {
+            if(response.ok) {
+                return response.json()
+            } else {
+                this.setState({hasError: true})
+            }
+        })
         .then(data => {
             this.setState({statsObject: data})
             console.log(this.state.statsObject)
+        })
+        .catch(error => {
+            console.log(error)
         })
 
         fetch(`https://api.smartable.ai/coronavirus/news/US-${this.props.searchTerm.toUpperCase()}`, {
@@ -34,11 +44,20 @@ class SearchResultContainer extends Component {
                 'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
             }
         })//end of fetch
-        .then(response => response.json())
+        .then(response => {
+            if(response.ok) {
+                return response.json()
+            } else {
+                this.setState({hasError: true})
+            }
+        })
         .then(data => {
             // console.log(data.news)
             this.setState({newsObject: data})
             console.log(this.state.newsObject)
+        })
+        .catch(error => {
+            console.log(error)
         })
         this.props.clearSearchBar()
     }
@@ -72,15 +91,16 @@ class SearchResultContainer extends Component {
     render() {
         return (
             <div>
+                {this.state.hasError ? <p>Woops, look like something went wrong. Please go back and try entering your State again</p> : null}
                 {this.state.statsObject && !this.state.newsTab ? this.renderStatsTable() : null}
                 {this.state.newsObject && this.state.newsTab ? this.renderNewsContainer(): null}
-                {this.state.statsObject ? null
+                {this.state.statsObject || this.state.hasError ? null
                     // <div className="back-btn-wrapper">
                     //     <Link to={"/"}>
                     //         <Button color='blue'>Back</Button>
                     //     </Link> 
                     // </div>
-                    : <h2 className="load-msg">Loading Data</h2>
+                    : <h2 className="load-msg">Loading</h2>
                 }
             </div>
         )
