@@ -10,3 +10,10 @@
     width: 100%;
     top: 50%;
 }
+
+.error-wrapper {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    font-size: 20px;
+}

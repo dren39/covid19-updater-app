@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
-import SearchBar from "./SearchBar";
+import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom'
+import SearchBar from "./SearchBar"
 
 class Home extends Component {
 

@@ -15,7 +15,7 @@ function NewsCard(props) {
                         <div className="card-btn-wrapper">
                             <a href={`${props.article.webUrl}`} target="_blank" rel="noopener noreferrer">
                                 <Button compact color="blue" active>
-                                    See Details <Icon name="arrow circle right"/>
+                                    Go to Article <Icon name="arrow circle right"/>
                                 </Button>
                             </a>
                         </div>

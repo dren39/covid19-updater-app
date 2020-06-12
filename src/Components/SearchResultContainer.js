@@ -91,7 +91,18 @@ class SearchResultContainer extends Component {
     render() {
         return (
             <div>
-                {this.state.hasError ? <p>Woops, look like something went wrong. Please go back and try entering your State again</p> : null}
+                {this.state.hasError ? 
+                    <div className="error-wrapper">
+                        <p>
+                            Woops, look like something went wrong.
+                            Please go back and try entering your State again
+                        </p> 
+                        <Link to={"/"}>
+                            <Button color='blue'>Back</Button>
+                        </Link> 
+                    </div>
+
+                : null}
                 {this.state.statsObject && !this.state.newsTab ? this.renderStatsTable() : null}
                 {this.state.newsObject && this.state.newsTab ? this.renderNewsContainer(): null}
                 {this.state.statsObject || this.state.hasError ? null
