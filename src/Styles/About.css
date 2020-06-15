@@ -1,4 +1,13 @@
 .about-wrapper {
-    width: 50%;
+    width: 60%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 50vh;
+    font-size: large;
+}
+
+.about-center-wrapper {
+    text-align: center;
 }

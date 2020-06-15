@@ -5,19 +5,20 @@ function About() {
     return (
         <div className="about-wrapper">
             <p>
-                Covid19 Daily Update is a web application developed to help spread information
-                and awareness about the 2019 coronavirus global pandemic. The app's main functions
-                is to display statistics for infection cases within a given state, and 
-                toggle to a news page where users will find the latest news article
-                related to Covid19 within that State.
+                Covid19 Daily Update is a React web application developed to help spread information
+                and awareness about the 2019 coronavirus global pandemic. The app's main functions are to
+                retrieve and provide Covid19 statics and news for any given State, provided by you. Statistics
+                and news are updated basis.
             </p>
-            <p>
+            <p className="about-center-wrapper">
                 This app is powered by the 
                 <span>
                     <a href="https://developer.smartable.ai/api-details#api=coronavirus"> Smartable AI API</a>
                 </span>
             </p>
-            <a href="https://github.com/dren39/covid19-updater-app">Github Repository</a>
+            <a className="about-center-wrapper" href="https://github.com/dren39/covid19-updater-app">
+                Github Repository
+            </a>
         </div>
     )
 }
