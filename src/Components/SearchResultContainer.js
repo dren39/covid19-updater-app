@@ -17,7 +17,15 @@ class SearchResultContainer extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.smartable.ai/coronavirus/stats/US-${this.props.searchTerm.toUpperCase()}`, {
+        const searchTerm = () => {
+            if(localStorage.getItem("searchTerm")) {
+                return localStorage.getItem("searchTerm")
+            } else {
+                return this.props.searchTerm.toUpperCase()
+            }
+        }
+        console.log("This is searchTerm from SearchResultContainer:",searchTerm().toUpperCase());
+        fetch(`https://api.smartable.ai/coronavirus/stats/US-${searchTerm().toUpperCase()}`, {
             method: 'GET',
             headers: {
                 'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
@@ -38,7 +46,7 @@ class SearchResultContainer extends Component {
             console.log(error)
         })
 
-        fetch(`https://api.smartable.ai/coronavirus/news/US-${this.props.searchTerm.toUpperCase()}`, {
+        fetch(`https://api.smartable.ai/coronavirus/news/US-${searchTerm().toUpperCase()}`, {
             method: 'GET',
             headers: {
                 'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'

@@ -12,10 +12,41 @@ import About from "./Components/About";
 class App extends Component {
 
     state = {
-        location: null,
+        // location: null,
         searchTerm: "",
+        usStatObject: null,
+        usNewsObject: null
         // newsTab: false,
         // showDropdown: false
+    }
+
+    componentDidMount() {
+        // fetch stats for the US
+        fetch('https://api.smartable.ai/coronavirus/stats/US', {
+            method: 'GET',
+            headers: {
+                'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
+            }
+        })//end of fetch
+        .then(response => response.json())
+        .then(data => {
+            console.log("this is fetch stat data:", data)
+            this.setState({usStatObject: data})
+            console.log("this is stat saved to state:",this.state.usStatObject)
+        })
+        // fetch news for the US
+        fetch('https://api.smartable.ai/coronavirus/news/US', {
+            method: 'GET',
+            headers: {
+                'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
+            }
+        })//end of fetch
+        .then(response => response.json())
+        .then( data => {
+            console.log("this is fetch news data:", data)
+            this.setState({usNewsObject: data})
+            console.log("this is news saved to state:",this.state.usNewsObject)
+        })
     }
 
     // getNews = () => {
@@ -39,7 +70,7 @@ class App extends Component {
     // }
 
     searchHandler = (event) => {
-        this.setState({searchTerm: event.target.value}, console.log(this.state.searchTerm));
+        this.setState({searchTerm: event.target.value}, ()=>localStorage.setItem('searchTerm', this.state.searchTerm));
     }
 
     clearSearchBar = () => {
