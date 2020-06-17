@@ -6,7 +6,11 @@ function StatsTable(props) {
     return (
         <div>
             <div>
-                <h2>Stats for {`${props.statsObj.location.provinceOrState}`}</h2>
+                {/* ternary render of title for use for US stats or State stats */}
+                {props.statsObj.location.provinceOrState ? 
+                <h2>Stats for {`${props.statsObj.location.provinceOrState}`}</h2> : 
+                <h2>Stats for the United States</h2> }
+                {/* <h2>Stats for {`${props.statsObj.location.provinceOrState}`}</h2> */}
                 <h5>Last updated {`${props.statsObj.updatedDateTime.slice(0,10)}`}</h5>
             </div>
             <div className="table-wrapper">

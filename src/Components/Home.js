@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
 import SearchBar from "./SearchBar"
+import StatsTable from "./StatsTable"
+import NewsContainer from "./NewsContainer"
+import OptionDropdown from "./OptionDropdown"
 
 class Home extends Component {
 
-    // state = {
-    //     location: null,
-    //     searchTerm: ""
-    // }
+    state = {
+        newsTab: false
+    }
 
     // getNews = () => {
         // fetch('https://api.smartable.ai/coronavirus/news/US-NY', {
@@ -33,10 +35,45 @@ class Home extends Component {
     //     this.setState({searchTerm: event.target.value}, console.log(this.state.searchTerm));
     // }
 
+    dropdownChangeHandler = (selection) => {
+        if(selection === "News") {
+            this.setState({newsTab: true})
+        } else {
+            this.setState({newsTab: false})
+        }
+    }
+
+    renderNewsContainer = () => {
+        return (
+            <div>
+                <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler}/>
+                <NewsContainer newsObject={this.props.usNewsObject}/>
+            </div>
+        )
+    }
+
+    renderStatsTable = () => {
+        return (
+            <div>
+                <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler}/>
+                <StatsTable statsObj={this.props.usStatObject}/>
+            </div>
+        )
+    }
+
     render() {
         return (
             <div>
-                <SearchBar searchTerm={this.props.searchTerm} searchHandler={this.props.searchHandler}/>
+                {/* ternary render to prevent crashing when state does not initially exist */}
+                {this.props.usStatObject ? 
+                    <div>
+                        <SearchBar searchTerm={this.props.searchTerm} searchHandler={this.props.searchHandler}/>
+                        {this.state.newsTab ? this.renderNewsContainer(): this.renderStatsTable()}
+                    </div>
+                    : <p>Loading</p>    
+                }
+                {/* <SearchBar searchTerm={this.props.searchTerm} searchHandler={this.props.searchHandler}/>
+                <StatsTable statsObj={this.props.usStatObject}/> */}
                 {/* <p>Stay Home Stay Safe</p> */}
                 {/* <button onClick={this.getNews}>Make fetch</button> */}
                 {/* { this.state.location ? 

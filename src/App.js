@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import './App.css';
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
-import Home from "./Components/Home";
+import React, {Component} from 'react'
+import './App.css'
+import {Route, Switch, BrowserRouter} from 'react-router-dom'
+import Home from "./Components/Home"
 // import SearchBar from "./Components/SearchBar";
-import SearchResultContainer from "./Components/SearchResultContainer";
+import SearchResultContainer from "./Components/SearchResultContainer"
 // import OptionDropdown from "./Components/OptionDropdown";
 // import StatsTable from "./Components/StatsTable";
-import Navbar from "./Components/Navbar";
-import About from "./Components/About";
+import Navbar from "./Components/Navbar"
+import About from "./Components/About"
 
 class App extends Component {
 
@@ -30,9 +30,8 @@ class App extends Component {
         })//end of fetch
         .then(response => response.json())
         .then(data => {
-            console.log("this is fetch stat data:", data)
-            this.setState({usStatObject: data})
-            console.log("this is stat saved to state:",this.state.usStatObject)
+            this.setState({usStatObject: data}, ()=>console.log("this is stat saved to state:",this.state.usStatObject))
+    
         })
         // fetch news for the US
         fetch('https://api.smartable.ai/coronavirus/news/US', {
@@ -43,9 +42,7 @@ class App extends Component {
         })//end of fetch
         .then(response => response.json())
         .then( data => {
-            console.log("this is fetch news data:", data)
-            this.setState({usNewsObject: data})
-            console.log("this is news saved to state:",this.state.usNewsObject)
+            this.setState({usNewsObject: data}, ()=>console.log("this is news saved to state:",this.state.usNewsObject))
         })
     }
 
@@ -87,7 +84,14 @@ class App extends Component {
 
 
     renderHome = () => {
-        return <Home searchTerm={this.state.searchTerm} searchHandler={this.searchHandler}/>
+        return (
+            <Home 
+                searchTerm={this.state.searchTerm} 
+                searchHandler={this.searchHandler}
+                usStatObject={this.state.usStatObject}
+                usNewsObject={this.state.usNewsObject}
+            />
+        )
     }
 
 

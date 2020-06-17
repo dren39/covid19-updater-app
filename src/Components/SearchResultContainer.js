@@ -18,7 +18,7 @@ class SearchResultContainer extends Component {
 
     componentDidMount() {
         const searchTerm = () => {
-            if(localStorage.getItem("searchTerm")) {
+            if(!this.props.searchTerm) {
                 return localStorage.getItem("searchTerm")
             } else {
                 return this.props.searchTerm.toUpperCase()

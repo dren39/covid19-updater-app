@@ -7,7 +7,9 @@ function NewsContainer(props) {
     return (
         <div>
             <div className="news-header">
-                <h2>News from {`${props.newsObject.location.provinceOrState}`}</h2>
+                {props.newsObject.location.provinceOrState ? 
+                <h2>News from {`${props.newsObject.location.provinceOrState}`}</h2> :
+                <h2>News from the United States</h2> }
             </div>
             <div className="card-group-wrapper">
                 <Card.Group itemsPerRow={6}>
