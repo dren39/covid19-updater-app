@@ -8,7 +8,7 @@ import OptionDropdown from "./OptionDropdown"
 class Home extends Component {
 
     state = {
-        newsTab: false
+        newsTab: false,
     }
 
     // getNews = () => {
@@ -48,6 +48,7 @@ class Home extends Component {
             <div>
                 <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler}/>
                 <NewsContainer newsObject={this.props.usNewsObject}/>
+                {/* newsObject is an array */}
             </div>
         )
     }

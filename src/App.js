@@ -15,7 +15,9 @@ class App extends Component {
         // location: null,
         searchTerm: "",
         usStatObject: null,
-        usNewsObject: null
+        usNewsObject: null,
+        currentPage: 1,
+        postsPerPage: 5
         // newsTab: false,
         // showDropdown: false
     }
@@ -82,14 +84,21 @@ class App extends Component {
     //     this.setState({showDropdown: !this.state.showDropdown}, this.renderNewsContainer())
     // }
 
-
+    indexOfLastPost = this.state.currentPage*this.state.postsPerPage;
+    indexOfFirstPost = this.indexOfLastPost-this.state.postsPerPage;
+    currentPosts = () => {
+        if(this.state.usNewsObject){
+            return this.state.usNewsObject.news.slice(this.indexOfFirstPost, this.indexOfLastPost);
+        }
+    }
     renderHome = () => {
         return (
             <Home 
                 searchTerm={this.state.searchTerm} 
                 searchHandler={this.searchHandler}
                 usStatObject={this.state.usStatObject}
-                usNewsObject={this.state.usNewsObject}
+                usNewsObject={this.currentPosts()}
+                // usNewsObject is an array 
             />
         )
     }

@@ -13,7 +13,9 @@ class SearchResultContainer extends Component {
         statsObject: null,
         newsObject: null,
         newsTab: false,
-        hasError: false
+        hasError: false,
+        // currentPage: 1,
+        // postsPerPage: 5
     }
 
     componentDidMount() {
@@ -95,6 +97,10 @@ class SearchResultContainer extends Component {
             this.setState({newsTab: false})
         }
     }
+
+    // indexOfLastPost = this.state.currentPage*this.state.postsPerPage;
+    // indexOfFirstPost = this.indexOfLastPost-this.state.postsPerPage;
+    // currentPosts = this.state.newsObject.news.slice(this.indexOfFirstPost, this.indexOfLastPost);
 
     render() {
         return (
