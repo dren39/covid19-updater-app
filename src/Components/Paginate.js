@@ -2,15 +2,19 @@ import React from 'react'
 import { Pagination } from 'semantic-ui-react'
 
 function Paginate(props) {
+
+    const pageNumbers = Math.ceil(props.totalPosts/props.postsPerPage);
+
     return (
         <Pagination
-        boundaryRange={0}
+        boundaryRange={1}
         defaultActivePage={1}
         ellipsisItem={null}
         firstItem={null}
         lastItem={null}
         siblingRange={1}
-        totalPages={10}
+        totalPages={pageNumbers}
+        onPageChange={(e, { activePage })=>props.paginateHandler(activePage)}
       />
     )
 }

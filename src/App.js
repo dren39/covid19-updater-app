@@ -17,7 +17,9 @@ class App extends Component {
         usStatObject: null,
         usNewsObject: null,
         currentPage: 1,
-        postsPerPage: 5
+        postsPerPage: 5,
+        indexOfLastPost: 5,
+        indexOfFirstPost: 0
         // newsTab: false,
         // showDropdown: false
     }
@@ -83,22 +85,49 @@ class App extends Component {
     // showDropdown = () => {
     //     this.setState({showDropdown: !this.state.showDropdown}, this.renderNewsContainer())
     // }
-
-    indexOfLastPost = this.state.currentPage*this.state.postsPerPage;
-    indexOfFirstPost = this.indexOfLastPost-this.state.postsPerPage;
+    // Pagination
+    // indexOfLastPost = this.state.currentPage*this.state.postsPerPage;
+    // indexOfFirstPost = this.indexOfLastPost-this.state.postsPerPage;
     currentPosts = () => {
         if(this.state.usNewsObject){
-            return this.state.usNewsObject.news.slice(this.indexOfFirstPost, this.indexOfLastPost);
+            return this.state.usNewsObject.news.slice(this.state.indexOfFirstPost, this.state.indexOfLastPost);
         }
     }
+    totalPosts = () => {
+        if(this.state.usNewsObject) {
+            return this.state.usNewsObject.news.length
+        }
+    }
+
+    createPagination = () => {
+        const indexOfLastPost = this.state.currentPage*this.state.postsPerPage;
+        const indexOfFirstPost = this.indexOfLastPost-this.state.postsPerPage;
+        const currentPosts = () => {
+            if(this.state.usNewsObject){
+                return this.state.usNewsObject.news.slice(indexOfFirstPost, indexOfLastPost);
+            }
+        }
+        return currentPosts();
+    }
+
+    paginateHandler = (pageNumber) => {
+        console.log(pageNumber)
+        const indexOfLastPost = pageNumber*this.state.postsPerPage;
+        const indexOfFirstPost = indexOfLastPost-this.state.postsPerPage;
+        this.setState({currentPage: pageNumber, indexOfLastPost: indexOfLastPost, indexOfFirstPost: indexOfFirstPost},()=>console.log(this.state.indexOfLastPost))
+    }
+
     renderHome = () => {
         return (
             <Home 
                 searchTerm={this.state.searchTerm} 
                 searchHandler={this.searchHandler}
                 usStatObject={this.state.usStatObject}
-                usNewsObject={this.currentPosts()}
-                // usNewsObject is an array 
+                usNewsObject={this.currentPosts()} // usNewsObject is an array 
+                postsPerPage={this.state.postsPerPage}
+                totalPosts={this.totalPosts()}
+                currentPage={this.state.currentPage}
+                paginateHandler={this.paginateHandler}
             />
         )
     }

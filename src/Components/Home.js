@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar"
 import StatsTable from "./StatsTable"
 import NewsContainer from "./NewsContainer"
 import OptionDropdown from "./OptionDropdown"
+import Paginate from "./Paginate"
 
 class Home extends Component {
 
@@ -47,8 +48,13 @@ class Home extends Component {
         return (
             <div>
                 <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler}/>
-                <NewsContainer newsObject={this.props.usNewsObject}/>
-                {/* newsObject is an array */}
+                <NewsContainer newsObject={this.props.usNewsObject}/> {/* newsObject is an array */}
+                <Paginate 
+                    postsPerPage={this.props.postsPerPage}
+                    totalPosts={this.props.totalPosts}
+                    paginateHandler={this.props.paginateHandler}
+                    currentPage={this.props.currentPage}
+                />
             </div>
         )
     }
