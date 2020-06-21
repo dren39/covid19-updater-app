@@ -7,12 +7,12 @@ function Paginate(props) {
 
     return (
         <Pagination
-        boundaryRange={1}
+        boundaryRange={2}
         defaultActivePage={1}
-        ellipsisItem={null}
+        // ellipsisItem={null}
         firstItem={null}
         lastItem={null}
-        siblingRange={1}
+        // siblingRange={1}
         totalPages={pageNumbers}
         onPageChange={(e, { activePage })=>props.paginateHandler(activePage)}
       />

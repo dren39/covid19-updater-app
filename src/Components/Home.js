@@ -5,6 +5,7 @@ import StatsTable from "./StatsTable"
 import NewsContainer from "./NewsContainer"
 import OptionDropdown from "./OptionDropdown"
 import Paginate from "./Paginate"
+import "../Styles/Home.css"
 
 class Home extends Component {
 
@@ -53,7 +54,6 @@ class Home extends Component {
                     postsPerPage={this.props.postsPerPage}
                     totalPosts={this.props.totalPosts}
                     paginateHandler={this.props.paginateHandler}
-                    currentPage={this.props.currentPage}
                 />
             </div>
         )
@@ -77,7 +77,7 @@ class Home extends Component {
                         <SearchBar searchTerm={this.props.searchTerm} searchHandler={this.props.searchHandler}/>
                         {this.state.newsTab ? this.renderNewsContainer(): this.renderStatsTable()}
                     </div>
-                    : <p>Loading</p>    
+                    : <h2 className="load-msg">Loading</h2>   
                 }
                 {/* <SearchBar searchTerm={this.props.searchTerm} searchHandler={this.props.searchHandler}/>
                 <StatsTable statsObj={this.props.usStatObject}/> */}

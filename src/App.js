@@ -17,9 +17,10 @@ class App extends Component {
         usStatObject: null,
         usNewsObject: null,
         currentPage: 1,
-        postsPerPage: 5,
-        indexOfLastPost: 5,
-        indexOfFirstPost: 0
+        postsPerPage: 8,
+        indexOfLastPost: 8,
+        indexOfFirstPost: 0,
+        totalPosts: 0
         // newsTab: false,
         // showDropdown: false
     }
@@ -46,7 +47,7 @@ class App extends Component {
         })//end of fetch
         .then(response => response.json())
         .then( data => {
-            this.setState({usNewsObject: data}, ()=>console.log("this is news saved to state:",this.state.usNewsObject))
+            this.setState({usNewsObject: data, totalPosts: data.news.length}, ()=>console.log("this is news saved to state:",this.state.usNewsObject))
         })
     }
 
@@ -85,6 +86,7 @@ class App extends Component {
     // showDropdown = () => {
     //     this.setState({showDropdown: !this.state.showDropdown}, this.renderNewsContainer())
     // }
+
     // Pagination
     // indexOfLastPost = this.state.currentPage*this.state.postsPerPage;
     // indexOfFirstPost = this.indexOfLastPost-this.state.postsPerPage;
@@ -93,22 +95,22 @@ class App extends Component {
             return this.state.usNewsObject.news.slice(this.state.indexOfFirstPost, this.state.indexOfLastPost);
         }
     }
-    totalPosts = () => {
-        if(this.state.usNewsObject) {
-            return this.state.usNewsObject.news.length
-        }
-    }
+    // totalPosts = () => {
+    //     if(this.state.usNewsObject) {
+    //         return this.state.usNewsObject.news.length
+    //     }
+    // }
 
-    createPagination = () => {
-        const indexOfLastPost = this.state.currentPage*this.state.postsPerPage;
-        const indexOfFirstPost = this.indexOfLastPost-this.state.postsPerPage;
-        const currentPosts = () => {
-            if(this.state.usNewsObject){
-                return this.state.usNewsObject.news.slice(indexOfFirstPost, indexOfLastPost);
-            }
-        }
-        return currentPosts();
-    }
+    // createPagination = () => {
+    //     const indexOfLastPost = this.state.currentPage*this.state.postsPerPage;
+    //     const indexOfFirstPost = this.indexOfLastPost-this.state.postsPerPage;
+    //     const currentPosts = () => {
+    //         if(this.state.usNewsObject){
+    //             return this.state.usNewsObject.news.slice(indexOfFirstPost, indexOfLastPost);
+    //         }
+    //     }
+    //     return currentPosts();
+    // }
 
     paginateHandler = (pageNumber) => {
         console.log(pageNumber)
@@ -125,8 +127,7 @@ class App extends Component {
                 usStatObject={this.state.usStatObject}
                 usNewsObject={this.currentPosts()} // usNewsObject is an array 
                 postsPerPage={this.state.postsPerPage}
-                totalPosts={this.totalPosts()}
-                currentPage={this.state.currentPage}
+                totalPosts={this.state.totalPosts}
                 paginateHandler={this.paginateHandler}
             />
         )

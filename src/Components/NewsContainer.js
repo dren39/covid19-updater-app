@@ -13,7 +13,7 @@ function NewsContainer(props) {
         }
     };
     return (
-        <div>
+        <div className="news-wrapper">
             <div className="news-header">
                 {props.newsObject.location ? 
                 <h2>News from {`${props.newsObject.location.provinceOrState}`}</h2> :
