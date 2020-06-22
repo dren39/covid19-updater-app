@@ -4,7 +4,7 @@ import '../Styles/StatsTable.css'
 
 function StatsTable(props) {
     return (
-        <div>
+        <div className="stats-table-wrapper">
             <div>
                 {/* ternary render of title for use for US stats or State stats */}
                 {props.statsObj.location.provinceOrState ? 

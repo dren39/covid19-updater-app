@@ -2,3 +2,10 @@
     width: 90%;
     margin: auto;
 }
+
+.stats-table-wrapper {
+    position: absolute;
+    top: 32%;
+    width: 100%;
+    margin: auto;
+}

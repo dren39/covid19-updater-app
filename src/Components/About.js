@@ -7,8 +7,8 @@ function About() {
             <p>
                 Covid19 Daily Update is a React web application developed to help spread information
                 and awareness about the 2019 coronavirus global pandemic. The app's main functions are to
-                retrieve and provide Covid19 statics and news for any given State, provided by you. Statistics
-                and news are updated basis.
+                retrieve and provide Covid19 news and statistics for the U.S. or any given State. News and
+                statistics are updated on a daily basis.
             </p>
             <p className="about-center-wrapper">
                 This app is powered by the 

@@ -25,7 +25,7 @@ class Home extends Component {
     renderNewsContainer = () => {
         return (
             <div>
-                <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler}/>
+                <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler} isHome={true}/>
                 <NewsContainer newsArray={this.props.usNewsArray}/>
                 <Paginate 
                     postsPerPage={this.props.postsPerPage}
@@ -39,7 +39,7 @@ class Home extends Component {
     renderStatsTable = () => {
         return (
             <div>
-                <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler}/>
+                <OptionDropdown dropdownChangeHandler={this.dropdownChangeHandler} isHome={true}/>
                 <StatsTable statsObj={this.props.usStatObject}/>
             </div>
         )

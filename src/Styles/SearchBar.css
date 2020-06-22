@@ -1,5 +1,6 @@
 .searchbar-top-wrapper {
-    height: 15vh;
+    /* height: 20vh; */
+    margin-top: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
