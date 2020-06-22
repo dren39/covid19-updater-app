@@ -7,14 +7,14 @@ function Paginate(props) {
 
     return (
         <Pagination
-        boundaryRange={2}
-        defaultActivePage={1}
-        // ellipsisItem={null}
-        firstItem={null}
-        lastItem={null}
-        // siblingRange={1}
-        totalPages={pageNumbers}
-        onPageChange={(e, { activePage })=>props.paginateHandler(activePage)}
+            boundaryRange={2}
+            defaultActivePage={1}
+            // ellipsisItem={null}
+            firstItem={null}
+            lastItem={null}
+            // siblingRange={1}
+            totalPages={pageNumbers}
+            onPageChange={(e, { activePage })=>props.paginateHandler(activePage)}
       />
     )
 }
