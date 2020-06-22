@@ -29,7 +29,7 @@ class App extends Component {
         })//end of fetch
         .then(response => response.json())
         .then(data => {
-            this.setState({usStatObject: data}, ()=>console.log("this is stat saved to state:",this.state.usStatObject))
+            this.setState({usStatObject: data})
     
         })
         // fetch news for the US
@@ -41,7 +41,7 @@ class App extends Component {
         })//end of fetch
         .then(response => response.json())
         .then( data => {
-            this.setState({usNewsObject: data, totalPosts: data.news.length}, ()=>console.log("this is news saved to state:",this.state.usNewsObject))
+            this.setState({usNewsObject: data, totalPosts: data.news.length})
         })
     }
 
@@ -70,10 +70,9 @@ class App extends Component {
     paginateHandler = (pageNumber) => {
         // this will update the values of first/last index post every time a new page is clicked
         // when state is reset it will change the pagination list
-        console.log(pageNumber)
         const indexOfLastPost = pageNumber*this.state.postsPerPage;
         const indexOfFirstPost = indexOfLastPost-this.state.postsPerPage;
-        this.setState({currentPage: pageNumber, indexOfLastPost: indexOfLastPost, indexOfFirstPost: indexOfFirstPost},()=>console.log(this.state.indexOfLastPost))
+        this.setState({currentPage: pageNumber, indexOfLastPost: indexOfLastPost, indexOfFirstPost: indexOfFirstPost})
     }
 
     renderHome = () => {

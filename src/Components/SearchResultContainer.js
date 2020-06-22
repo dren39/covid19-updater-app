@@ -31,7 +31,6 @@ class SearchResultContainer extends Component {
                 return this.props.searchTerm.toUpperCase()
             }
         }
-        console.log("This is searchTerm from SearchResultContainer:",searchTerm().toUpperCase());
         // fetch for stats data
         fetch(`https://api.smartable.ai/coronavirus/stats/US-${searchTerm().toUpperCase()}`, {
             method: 'GET',
@@ -48,7 +47,6 @@ class SearchResultContainer extends Component {
         })
         .then(data => {
             this.setState({statsObject: data})
-            console.log(this.state.statsObject)
         })
         .catch(error => {
             console.log(error)
@@ -69,9 +67,7 @@ class SearchResultContainer extends Component {
             }
         })
         .then(data => {
-            // console.log(data.news)
             this.setState({newsObject: data, totalPosts: data.news.length})
-            console.log(this.state.newsObject)
         })
         .catch(error => {
             console.log(error)
@@ -91,10 +87,9 @@ class SearchResultContainer extends Component {
     paginateHandler = (pageNumber) => {
         // this will update the values of first/last index post every time a new page is clicked
         // when state is reset it will change the pagination list
-        console.log(pageNumber)
         const indexOfLastPost = pageNumber*this.state.postsPerPage;
         const indexOfFirstPost = indexOfLastPost-this.state.postsPerPage;
-        this.setState({currentPage: pageNumber, indexOfLastPost: indexOfLastPost, indexOfFirstPost: indexOfFirstPost},()=>console.log(this.state.indexOfLastPost))
+        this.setState({currentPage: pageNumber, indexOfLastPost: indexOfLastPost, indexOfFirstPost: indexOfFirstPost})
     }
 
     renderNewsContainer = () => {
