@@ -26,13 +26,13 @@ class SearchResultContainer extends Component {
             // this prevents program from crashing on page refresh by checking for a searchterm
             // saved in local storage
             if(!this.props.searchTerm) {
-                return localStorage.getItem("searchTerm")
+                return localStorage.getItem("searchTerm").toUpperCase()
             } else {
                 return this.props.searchTerm.toUpperCase()
             }
         }
         // fetch for stats data
-        fetch(`https://api.smartable.ai/coronavirus/stats/US-${searchTerm().toUpperCase()}`, {
+        fetch(`https://api.smartable.ai/coronavirus/stats/US-${searchTerm()}`, {
             method: 'GET',
             headers: {
                 'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
