@@ -95,8 +95,8 @@ class App extends Component {
                 <div className="App">
                     <Navbar/>
                     <Switch>
-                        <Route path='/:state' component={this.renderSearchResults}/>
                         <Route path='/about' component={About}/>
+                        <Route path='/:state' component={this.renderSearchResults}/>
                         <Route path='/' component={this.renderHome}/>
                     </Switch>
                 </div>
