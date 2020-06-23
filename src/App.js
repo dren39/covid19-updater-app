@@ -91,13 +91,13 @@ class App extends Component {
 
     render() {
         return (
-            <BrowserRouter basename="/">
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <div className="App">
                     <Navbar/>
                     <Switch>
-                        <Route path='/' component={this.renderHome}/>
                         <Route path='/:state' component={this.renderSearchResults}/>
                         <Route path='/about' component={About}/>
+                        <Route path='/' component={this.renderHome}/>
                     </Switch>
                 </div>
             </BrowserRouter>
