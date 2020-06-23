@@ -16,9 +16,10 @@
     top: 50%;
 }
 
+/* Responsive Rules */
 
-/* .center.aligned.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: end; 
-} */
+@media screen and (max-width: 455px) {
+    .ui.card {
+        height: 27vh;
+    }
+}

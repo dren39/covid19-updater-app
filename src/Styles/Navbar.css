@@ -39,3 +39,16 @@
     margin-left: 60%;
     font-size: 18px;
 }
+
+/* Responsive Rules */
+@media screen and (max-width:455px) {
+    .title-wrapper h3  {
+        font-size: 17px;
+    }
+    .menu-bar {
+        display: inline-block;
+        margin-left: 18%;
+        font-size: 17px;
+    }
+
+}

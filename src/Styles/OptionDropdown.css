@@ -3,3 +3,12 @@
     display: flex;
     justify-content: flex-end;
 }
+
+/* Responsive Rules */
+
+@media screen and (max-width: 455px) {
+    .dropdown-wrapper {
+        justify-content: center;
+        width: 100%;
+    }
+}

@@ -11,3 +11,11 @@
 .about-center-wrapper {
     text-align: center;
 }
+
+/* Responsive Rules */
+@media screen and (max-width: 455px) {
+    .about-wrapper {
+        height: 61vh;
+        font-size: medium;
+    }
+}

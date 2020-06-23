@@ -5,7 +5,16 @@
 
 .stats-table-wrapper {
     position: absolute;
-    top: 32%;
+    /* top: 32%; */
+    top: 24%;
     width: 100%;
     margin: auto;
+}
+
+/* Responsive Rules */
+
+@media screen and (max-width: 455px) {
+    .stats-table-wrapper {
+        top: 26%;
+    }
 }

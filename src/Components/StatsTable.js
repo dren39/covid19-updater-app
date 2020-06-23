@@ -14,7 +14,7 @@ function StatsTable(props) {
                 <h5>Last updated {`${props.statsObj.updatedDateTime.slice(0,10)}`}</h5>
             </div>
             <div className="table-wrapper">
-                <Table celled color={"blue"}>
+                <Table celled size={"large"} color={"blue"} stackable={true}>
                     <Table.Header>
                         <Table.Row>
                         <Table.HeaderCell>Newly Confirmed Cases</Table.HeaderCell>
