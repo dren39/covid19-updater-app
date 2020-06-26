@@ -22,6 +22,7 @@ class SearchResultContainer extends Component {
     }
 
     componentDidMount() {
+        const API_KEY = process.env.REACT_APP_API_KEY;
         const searchTerm = () => {
             // this prevents program from crashing on page refresh by checking for a searchterm
             // saved in local storage
@@ -35,7 +36,7 @@ class SearchResultContainer extends Component {
         fetch(`https://api.smartable.ai/coronavirus/stats/US-${searchTerm()}`, {
             method: 'GET',
             headers: {
-                'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
+                'Subscription-Key': API_KEY
             }
         })//end of fetch
         .then(response => {
@@ -56,7 +57,7 @@ class SearchResultContainer extends Component {
         fetch(`https://api.smartable.ai/coronavirus/news/US-${searchTerm().toUpperCase()}`, {
             method: 'GET',
             headers: {
-                'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
+                'Subscription-Key': API_KEY
             }
         })//end of fetch
         .then(response => {

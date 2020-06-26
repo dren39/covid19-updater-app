@@ -13,7 +13,7 @@ function NewsContainer(props) {
                 <h2>News from the United States</h2> }
             </div>
             <div className="card-group-wrapper">
-                <Card.Group itemsPerRow={6}>
+                <Card.Group itemsPerRow={4}>
                     {props.newsArray.map((article, index) => <NewsCard article={article} key={index}/>)}
                 </Card.Group>
             </div>

@@ -21,10 +21,11 @@ class App extends Component {
 
     componentDidMount() {
         // fetch stats for the US
+        const API_KEY = process.env.REACT_APP_API_KEY;
         fetch('https://api.smartable.ai/coronavirus/stats/US', {
             method: 'GET',
             headers: {
-                'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
+                'Subscription-Key': API_KEY
             }
         })//end of fetch
         .then(response => response.json())
@@ -36,7 +37,7 @@ class App extends Component {
         fetch('https://api.smartable.ai/coronavirus/news/US', {
             method: 'GET',
             headers: {
-                'Subscription-Key': '3009d4ccc29e4808af1ccc25c69b4d5d'
+                'Subscription-Key': API_KEY
             }
         })//end of fetch
         .then(response => response.json())
