@@ -10,7 +10,7 @@ function NewsContainer(props) {
             <div className="news-header">
                 {props.location ?
                 <h2>News from {`${props.location}`}</h2> :
-                <h2>News from the United States</h2> }
+                <h2>News from the USA</h2> }
             </div>
             <div className="card-group-wrapper">
                 <Card.Group itemsPerRow={4}>
