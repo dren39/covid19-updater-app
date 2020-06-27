@@ -14,3 +14,14 @@
         width: 61%;
     }
 }
+@media screen and (max-width: 400px) {
+    .card-group-wrapper {
+        width: 70%;
+    }
+}
+
+@media screen and (max-height: 345px) {
+    .ui.card {
+        height: 52vh;
+    }
+}

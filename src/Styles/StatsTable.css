@@ -18,3 +18,15 @@
         top: 26%;
     }
 }
+
+@media screen and (max-height: 450px) {
+    .stats-table-wrapper {
+        top: 38%;
+    }
+}
+
+@media screen and (max-height: 300px) {
+    .stats-table-wrapper {
+        top: 50%;
+    }
+}
