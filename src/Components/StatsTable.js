@@ -2,8 +2,8 @@ import React from 'react'
 import { Table } from 'semantic-ui-react'
 import '../Styles/StatsTable.css'
 
+console.log("Testing mobile css")
 function StatsTable(props) {
-    console.log("Testing mobile css")
     return (
         <div className="stats-table-wrapper">
             <div>
