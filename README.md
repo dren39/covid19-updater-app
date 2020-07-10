@@ -8,7 +8,7 @@ The application's main functionalities are to retrieve and display statistical d
 
 ## Installation
 
-This application requires having Node and React installed on your machine.\
+This application requires having Node and React installed on your machine. For best use experience please use with Chrome Browser.\
 Clone this repository to your local machine and navigate to the app file in your terminal.\
 Run `npm install` to install the required dependencies.\
 Run `npm start` to start up the React application.
