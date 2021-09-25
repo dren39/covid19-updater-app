@@ -15,6 +15,5 @@ Run `npm start` to start up the React application.
 
 Your default browser should automatically open up to the React application once the application has started up,
 but you can also manually navigate to it in your browser by going to https://locahost:3000/ \
-A working demo of the app can be used [here](https://dren39.github.io/covid19-updater-app/).
 
-This application is powered by the [Smartable.AI API](https://developer.smartable.ai/api-details#api=coronavirus)
+Note: This app has been deprecated because the third party API that powers this app (Smartable.AI API) has been sunset.
