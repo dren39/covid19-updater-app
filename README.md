@@ -18,4 +18,4 @@ but you can also manually navigate to it in your browser by going to https://loc
 
 ## Note
 
-This app has been deprecated because the third party API that powers this app (Smartable.AI API) has been sunset.
+This app has been deprecated due to the third party API that powers this app (Smartable.AI API) being sunset.
