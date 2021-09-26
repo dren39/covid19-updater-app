@@ -1,6 +1,6 @@
 ## Introduction
 
-Covid19 Daily Update is a React web application developed to help spread information and awareness about the 2019 coronavirus pandemic.
+Covid19 Daily Update is a React web application developed to help spread information and awareness about the 2019 coronavirus pandemic
 
 ## Functionality
 
